@@ -1,18 +1,18 @@
 class AgeTool < Formula
   desc "A full featured AGE encryption management tool for encrypting, decrypting and managing AGE key pairs with audit logging"
   homepage "https://github.com/anveitch/age-tool"
-  version "1.1.0"
+  version "1.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/anveitch/age-tool/releases/download/v1.1.0/age-tool-macos-arm64"
-  sha256 "78c2246e6fedbc8bde4f75c715ae160f99abd8bba1643b181236b67d7b4e27d2"
+      url "https://github.com/anveitch/age-tool/releases/download/v1.1.1/age-tool-macos-arm64"
+  sha256 "3a754e983a4b10c2d0db68c6af2f22ca00e6dccc4d027d553bbd9e8b32bb0b2c"
     end
 
     on_intel do
-      url "https://github.com/anveitch/age-tool/releases/download/v1.1.0/age-tool-macos-intel"
-  sha256 "afe9aa8d8b8657e5b69cfaa9e606a8d5ef2399590aaf774ec0711ae3f5fd664d"
+      url "https://github.com/anveitch/age-tool/releases/download/v1.1.1/age-tool-macos-intel"
+  sha256 "3963a174b1bee88220a9392ce82adc87f16dcf59d3d984d5b7c234bf14623ef7"
     end
   end
 
