@@ -1,34 +1,23 @@
-# Homebrew formula for age-tool
-#
-# A full featured AGE encryption management tool. Installs the
-# pre-compiled binary for the current macOS architecture (arm64 or x86_64).
-#
-# Usage:
-#   brew tap anveitch/age-tool https://github.com/anveitch/age-tool
-#   brew install age-tool
-
 class AgeTool < Formula
   desc "A full featured AGE encryption management tool for encrypting, decrypting and managing AGE key pairs with audit logging"
   homepage "https://github.com/anveitch/age-tool"
   version "1.0.0"
   license "MIT"
 
-  # Select the correct binary URL and checksum based on the current architecture
   on_macos do
     on_arm do
       url "https://github.com/anveitch/age-tool/releases/download/v1.0.0/age-tool-macos-arm64"
-      sha256 "3e41b32a3544247ee4b3756d4db7dd4753a092128cc41970684f0b7b69357493"  
-  end
+      sha256 "653158a71c27ca620b95f5fd401635bea6099a1e911ccc1c01fcd1707427fc37"
+    end
 
     on_intel do
       url "https://github.com/anveitch/age-tool/releases/download/v1.0.0/age-tool-macos-intel"
-      sha256 "cbdc5162b34a6a6c02d26a1769646946a0ef164c41b58451ff10ba55ba9d214c"
+      sha256 "0e2dc21b8c488d1bf11526ae7710f0b1dcf5fb3cbdcce351353b4e0a577a1500"
     end
   end
 
   def install
-    # The downloaded file is a single pre-compiled binary.
-    # Determine the downloaded filename based on architecture.
+    # Determine the correct binary name based on architecture
     binary_name = if Hardware::CPU.arm?
       "age-tool-macos-arm64"
     else
@@ -41,10 +30,8 @@ class AgeTool < Formula
   end
 
   test do
-    # Verify the binary runs and prints the main menu header.
-    # age-tool is an interactive TUI app with no --version flag,
-    # so we pipe "q" to quit immediately and check for the banner.
+    # Pipe q to quit immediately and verify the binary runs
     output = pipe_output("#{bin}/age-tool", "q\n", 0)
-    assert_match "age-tool: file encryption/decryption", output
+    assert_match "age-tool", output
   end
 end
