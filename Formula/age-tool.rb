@@ -17,8 +17,8 @@ class AgeTool < Formula
   on_macos do
     on_arm do
       url "https://github.com/anveitch/age-tool/releases/download/v1.0.0/age-tool-macos-arm64"
-      sha256 "a1176ae0ea9aa9bcad3916fccf18b0a51e1bc68c1ad2dda7bb9d9f779343b655"
-    end
+      sha256 "3e41b32a3544247ee4b3756d4db7dd4753a092128cc41970684f0b7b69357493"  
+  end
 
     on_intel do
       url "https://github.com/anveitch/age-tool/releases/download/v1.0.0/age-tool-macos-intel"
